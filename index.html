@@ -23,11 +23,12 @@
         <p class="eyebrow">New Collection</p>
         <h1>elina</h1>
         <p class="tagline">Wear your story.</p>
-        <p class="intro">Eine stylische Clothing Brand mit weichem Look, Herz-Detail und modernen Pieces.</p>
+        <p class="intro">Eine stylische Clothing Brand mit weichem Look, Herz-Detail und modernen Pieces fuer Jugendliche.</p>
         <a class="primary-btn" href="#shop">Jetzt shoppen</a>
       </div>
       <div class="hero-card">
-        <div class="hoodie">
+        <div class="hoodie-preview">
+          <div class="hoodie-neck"></div>
           <div class="hoodie-logo">el<span>i</span>na</div>
         </div>
       </div>
@@ -42,7 +43,7 @@
     <section class="shop" id="shop">
       <div class="section-title">
         <p>Bestseller</p>
-        <h2>Unsere ersten Pieces</h2>
+        <h2>Testprodukte im Shop</h2>
       </div>
       <div class="products">
         <article class="product">
@@ -50,23 +51,37 @@
           <h3>Elina Hoodie</h3>
           <p>Schwarz / Oversized</p>
           <strong>CHF 59.90</strong>
-          <button data-name="Elina Hoodie">In den Warenkorb</button>
+          <button data-name="Elina Hoodie" data-price="59.90">In den Warenkorb</button>
         </article>
         <article class="product">
           <div class="product-img pink"><span>elina</span></div>
           <h3>Elina Oversize Tee</h3>
           <p>Pink / Soft Cotton</p>
           <strong>CHF 29.90</strong>
-          <button data-name="Elina Oversize Tee">In den Warenkorb</button>
+          <button data-name="Elina Oversize Tee" data-price="29.90">In den Warenkorb</button>
         </article>
         <article class="product">
           <div class="product-img cream"><span>elina</span></div>
           <h3>Elina Tote Bag</h3>
           <p>Cream / Everyday Bag</p>
           <strong>CHF 19.90</strong>
-          <button data-name="Elina Tote Bag">In den Warenkorb</button>
+          <button data-name="Elina Tote Bag" data-price="19.90">In den Warenkorb</button>
+        </article>
+        <article class="product">
+          <div class="product-img grey"><span>elina</span></div>
+          <h3>Elina Zip Hoodie</h3>
+          <p>Grey / Premium</p>
+          <strong>CHF 64.90</strong>
+          <button data-name="Elina Zip Hoodie" data-price="64.90">In den Warenkorb</button>
         </article>
       </div>
+    </section>
+
+    <section class="cart-section" id="cart">
+      <h2>Dein Warenkorb</h2>
+      <div id="cartItems" class="cart-items"><p class="empty">Noch keine Produkte im Warenkorb.</p></div>
+      <div class="cart-total">Total: CHF <span id="cartTotal">0.00</span></div>
+      <button class="checkout-btn" id="checkoutBtn">Test Bestellung abschliessen</button>
     </section>
 
     <section class="about" id="about">
