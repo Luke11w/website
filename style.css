@@ -1,1 +1,93 @@
-body{margin:0;font-family:Arial;background:#111;color:#fff}header{display:flex;justify-content:space-between;padding:20px;background:#000}a{color:#fff;text-decoration:none;margin:0 10px}.brand span{color:#ff4d6d}.hero{display:flex;justify-content:space-between;padding:40px}.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;padding:40px}.product{background:#222;padding:20px;border-radius:10px;text-align:center}.product-img{height:120px;display:flex;align-items:center;justify-content:center;border-radius:8px;margin-bottom:10px}.black{background:#000}.pink{background:#ffb6c1;color:#000}.cream{background:#eee;color:#000}.grey{background:#555}.product button{padding:10px;background:#ff4d6d;border:none;color:#000;cursor:pointer}.cart-section{padding:40px;background:#1a1a1a}.cart-items div{display:flex;justify-content:space-between;margin:10px 0}.checkout-btn{margin-top:20px;padding:10px;background:#ff4d6d;border:none}footer{text-align:center;padding:20px}
+body{
+  margin:0;
+  font-family:Arial;
+  background:#0d0d0f;
+  color:#fff;
+}
+
+header{
+  display:flex;
+  justify-content:space-between;
+  padding:20px;
+  background:#000;
+  position:sticky;
+  top:0;
+}
+
+a{
+  color:#fff;
+  text-decoration:none;
+  margin:0 12px;
+}
+
+.brand span{
+  color:#ff4d6d;
+}
+
+.hero{
+  display:flex;
+  justify-content:space-between;
+  padding:80px 60px;
+}
+
+.hero h1{
+  font-size:60px;
+}
+
+.primary-btn{
+  background:#ff4d6d;
+  color:#000;
+  padding:12px 24px;
+  border-radius:8px;
+}
+
+.products{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:20px;
+  padding:40px;
+}
+
+.product{
+  background:#161618;
+  padding:20px;
+  border-radius:12px;
+  text-align:center;
+  transition:0.3s;
+}
+
+.product:hover{
+  transform:translateY(-5px);
+}
+
+.product-img{
+  height:140px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:10px;
+  margin-bottom:15px;
+}
+
+.black{background:#000;}
+.pink{background:#ffb6c1;color:#000;}
+.cream{background:#eee;color:#000;}
+
+.product button{
+  padding:10px;
+  background:#ff4d6d;
+  border:none;
+  color:#000;
+  cursor:pointer;
+}
+
+.cart-section{
+  padding:40px;
+  background:#111;
+}
+
+footer{
+  text-align:center;
+  padding:20px;
+  background:#000;
+}
