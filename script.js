@@ -1,9 +1,1 @@
-let count = 0;
-const cartCount = document.getElementById("cartCount");
-
-document.querySelectorAll(".product button").forEach(btn => {
-  btn.addEventListener("click", () => {
-    count++;
-    cartCount.textContent = count;
-  });
-});
+let cart=[];let total=0;const cartCount=document.getElementById("cartCount");const cartItems=document.getElementById("cartItems");const cartTotal=document.getElementById("cartTotal");document.querySelectorAll(".product button").forEach(btn=>{btn.addEventListener("click",()=>{let name=btn.dataset.name;let price=parseFloat(btn.dataset.price);cart.push({name,price});total+=price;updateCart();});});function updateCart(){cartCount.textContent=cart.length;cartItems.innerHTML="";cart.forEach(item=>{let div=document.createElement("div");div.innerHTML=item.name+" - CHF "+item.price;cartItems.appendChild(div);});cartTotal.textContent=total.toFixed(2);}document.getElementById("checkoutBtn").addEventListener("click",()=>{alert("Test Bestellung erfolgreich!");cart=[];total=0;updateCart();});
