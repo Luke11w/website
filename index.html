@@ -3,66 +3,89 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Luke11w – Meine Website</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <title>elina | Clothing Brand</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="bg"></div>
-
-  <header class="hero">
-    <nav class="nav">
-      <div class="logo">Luke11w</div>
-      <a class="nav-btn" href="#projects">Projekte</a>
+  <header class="site-header">
+    <a class="brand" href="#home">el<span>i</span>na</a>
+    <nav>
+      <a href="#shop">Shop</a>
+      <a href="#about">About</a>
+      <a href="#kontakt">Kontakt</a>
     </nav>
-
-    <section class="hero-content">
-      <p class="eyebrow">Willkommen auf meinem GitHub-Projekt</p>
-      <h1>Eine kleine Website mit modernem Look.</h1>
-      <p class="subtitle">
-        Diese Seite wurde direkt aus ChatGPT in dein Repository erstellt.
-        Du kannst sie später beliebig erweitern.
-      </p>
-
-      <div class="actions">
-        <a class="btn primary" href="#projects">Los geht's</a>
-        <button class="btn secondary" id="surpriseBtn">Klick mich</button>
-      </div>
-    </section>
+    <button class="cart-btn" id="cartBtn">Warenkorb <b id="cartCount">0</b></button>
   </header>
 
-  <main>
-    <section class="card-grid" id="projects">
-      <article class="card">
-        <span class="tag">Projekt</span>
-        <h2>Starter-Website</h2>
-        <p>Ein sauberer Startpunkt für deine eigene Homepage oder Portfolio-Seite.</p>
-      </article>
-
-      <article class="card">
-        <span class="tag">Design</span>
-        <h2>Modern & simpel</h2>
-        <p>Mit Glaseffekt, Farbverläufen und responsive Layout für Handy und PC.</p>
-      </article>
-
-      <article class="card">
-        <span class="tag">Nächster Schritt</span>
-        <h2>Leicht erweiterbar</h2>
-        <p>Füge Bilder, Projekte, ein Kontaktformular oder coole Animationen hinzu.</p>
-      </article>
+  <main id="home">
+    <section class="hero">
+      <div class="hero-text">
+        <p class="eyebrow">New Collection</p>
+        <h1>elina</h1>
+        <p class="tagline">Wear your story.</p>
+        <p class="intro">Eine stylische Clothing Brand mit weichem Look, Herz-Detail und modernen Pieces.</p>
+        <a class="primary-btn" href="#shop">Jetzt shoppen</a>
+      </div>
+      <div class="hero-card">
+        <div class="hoodie">
+          <div class="hoodie-logo">el<span>i</span>na</div>
+        </div>
+      </div>
     </section>
 
-    <section class="message-box" id="messageBox" aria-live="polite">
-      <p>👋 Hi! Drück auf <strong>„Klick mich“</strong> für eine kleine Überraschung.</p>
+    <section class="features">
+      <article><h3>Made with love</h3><p>Jedes Piece wird mit Liebe designt.</p></article>
+      <article><h3>Stylish</h3><p>Clean, modern und perfekt fuer jeden Tag.</p></article>
+      <article><h3>Soft Feel</h3><p>Bequeme Schnitte und cozy Vibes.</p></article>
+    </section>
+
+    <section class="shop" id="shop">
+      <div class="section-title">
+        <p>Bestseller</p>
+        <h2>Unsere ersten Pieces</h2>
+      </div>
+      <div class="products">
+        <article class="product">
+          <div class="product-img black"><span>elina</span></div>
+          <h3>Elina Hoodie</h3>
+          <p>Schwarz / Oversized</p>
+          <strong>CHF 59.90</strong>
+          <button data-name="Elina Hoodie">In den Warenkorb</button>
+        </article>
+        <article class="product">
+          <div class="product-img pink"><span>elina</span></div>
+          <h3>Elina Oversize Tee</h3>
+          <p>Pink / Soft Cotton</p>
+          <strong>CHF 29.90</strong>
+          <button data-name="Elina Oversize Tee">In den Warenkorb</button>
+        </article>
+        <article class="product">
+          <div class="product-img cream"><span>elina</span></div>
+          <h3>Elina Tote Bag</h3>
+          <p>Cream / Everyday Bag</p>
+          <strong>CHF 19.90</strong>
+          <button data-name="Elina Tote Bag">In den Warenkorb</button>
+        </article>
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <h2>Ueber elina</h2>
+      <p>elina ist eine junge, stylische Brand mit weicher Schrift und einem Herz beim i-Punkt.</p>
+    </section>
+
+    <section class="newsletter" id="kontakt">
+      <h2>Join the elina club</h2>
+      <p>Erhalte News zu Drops und neuen Designs.</p>
+      <form id="newsletterForm">
+        <input type="email" placeholder="Deine E-Mail" required>
+        <button>Abonnieren</button>
+      </form>
+      <p id="formMessage"></p>
     </section>
   </main>
 
-  <footer class="footer">
-    <p>Erstellt für Luke11w ✨</p>
-  </footer>
-
+  <footer><p>2026 elina. Made with love.</p></footer>
   <script src="script.js"></script>
 </body>
 </html>
