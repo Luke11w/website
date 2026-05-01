@@ -3,105 +3,63 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>elina | Wear Your Story</title>
+  <title>elina | Clothing Brand</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header class="site-header">
-    <a class="brand" href="#home">el<span>i</span>na</a>
+    <a class="brand" href="index.html">el<span>i</span>na</a>
     <nav>
-      <a href="#home">Home</a>
-      <a href="#shop">Shop</a>
-      <a href="#about">About</a>
-      <a href="#kontakt">Kontakt</a>
+      <a href="index.html">Home</a>
+      <a href="shop.html">Shop</a>
+      <a href="warenkorb.html">Warenkorb <b id="cartCount">0</b></a>
     </nav>
-    <button class="cart-btn" id="cartBtn">Warenkorb <b id="cartCount">0</b></button>
   </header>
 
-  <main id="home">
+  <main>
     <section class="hero">
-      <div class="hero-text">
-        <p class="eyebrow">New Collection</p>
-        <h1>WEAR<br>YOUR STORY.</h1>
-        <p class="intro">Stylische Essentials fuer jeden Tag. Fuer dich. Fuer deinen Style. Fuer deine Story.</p>
-        <a class="primary-btn" href="#shop">Jetzt shoppen</a>
+      <div>
+        <p class="eyebrow">New Drop</p>
+        <h1>WEAR YOUR STORY.</h1>
+        <p>Stylische Streetwear fuer Jugendliche. Modern, clean und mit Herz.</p>
+        <a class="primary-btn" href="shop.html">Kollektion ansehen</a>
       </div>
-      <div class="hero-visual">
-        <div class="mock-person"></div>
-        <div class="mock-logo">el<span>i</span>na</div>
-      </div>
-    </section>
-
-    <section class="brand-board">
-      <div class="logo-box big-logo">el<span>i</span>na<small>Wear your story.</small></div>
-      <div class="swatch pink-swatch">Pink</div>
-      <div class="swatch black-swatch">Black</div>
-      <div class="mini-card"><h3>Made with love</h3><p>Jedes Piece wird mit Liebe designt.</p></div>
-      <div class="mini-card"><h3>Premium Quality</h3><p>Hochwertige Materialien fuer maximalen Komfort.</p></div>
-      <div class="mini-card"><h3>Sustainable</h3><p>Bewusst produziert fuer eine bessere Zukunft.</p></div>
-    </section>
-
-    <section class="shop" id="shop">
-      <div class="section-title">
-        <p>Bestseller</p>
-        <h2>Unsere ersten Pieces</h2>
-      </div>
-      <div class="products">
-        <article class="product">
-          <div class="product-img black product-hoodie"><span>elina</span></div>
-          <h3>Elina Hoodie</h3>
-          <p>Schwarz / Oversized</p>
-          <strong>CHF 59.90</strong>
-          <button data-name="Elina Hoodie" data-price="59.90">In den Warenkorb</button>
-        </article>
-        <article class="product">
-          <div class="product-img pink product-tee"><span>elina</span></div>
-          <h3>Elina Oversize Tee</h3>
-          <p>Pink / Soft Cotton</p>
-          <strong>CHF 29.90</strong>
-          <button data-name="Elina Oversize Tee" data-price="29.90">In den Warenkorb</button>
-        </article>
-        <article class="product">
-          <div class="product-img black product-zip"><span>elina</span></div>
-          <h3>Elina Zip Hoodie</h3>
-          <p>Schwarz / Premium</p>
-          <strong>CHF 64.90</strong>
-          <button data-name="Elina Zip Hoodie" data-price="64.90">In den Warenkorb</button>
-        </article>
-        <article class="product">
-          <div class="product-img cream product-bag"><span>elina</span></div>
-          <h3>Elina Tote Bag</h3>
-          <p>Cream / Everyday Bag</p>
-          <strong>CHF 19.90</strong>
-          <button data-name="Elina Tote Bag" data-price="19.90">In den Warenkorb</button>
-        </article>
+      <div class="hero-card">
+        <div class="logo-big">el<span>i</span>na</div>
+        <p>Soft streetwear made for your everyday look.</p>
       </div>
     </section>
 
-    <section class="cart-section" id="cart">
-      <h2>Dein Warenkorb</h2>
-      <div id="cartItems" class="cart-items"><p class="empty">Noch keine Produkte im Warenkorb.</p></div>
-      <div class="cart-total">Total: CHF <span id="cartTotal">0.00</span></div>
-      <button class="checkout-btn" id="checkoutBtn">Test Bestellung abschliessen</button>
+    <section class="trust-grid">
+      <article><h3>Sicherer Test-Shop</h3><p>Der Checkout ist aktuell eine Demo ohne echtes Geld.</p></article>
+      <article><h3>Premium Look</h3><p>Dunkles Design mit pinkem Brand-Akzent.</p></article>
+      <article><h3>Warenkorb</h3><p>Produkte bleiben im Browser gespeichert.</p></article>
     </section>
 
-    <section class="about" id="about">
-      <h2>Ueber elina</h2>
-      <p>elina ist eine junge, stylische Clothing Brand mit einer weichen Schrift und einem Herz beim i-Punkt. Die Marke steht fuer Style, Freundschaft und Selbstbewusstsein.</p>
+    <section class="section-title">
+      <p>Bestseller</p>
+      <h2>Unsere Highlights</h2>
     </section>
 
-    <section class="newsletter" id="kontakt">
-      <h2>Join the elina club</h2>
-      <p>Erhalte News zu Drops und neuen Designs.</p>
-      <form id="newsletterForm">
-        <input type="email" placeholder="Deine E-Mail" required>
-        <button>Abonnieren</button>
-      </form>
-      <p id="formMessage"></p>
+    <section class="products">
+      <article class="product">
+        <div class="product-img black"><span>elina</span></div>
+        <h3>Elina Hoodie</h3>
+        <p>Schwarz / Oversized</p>
+        <strong>CHF 59.90</strong>
+        <button data-name="Elina Hoodie" data-price="59.90">In den Warenkorb</button>
+      </article>
+      <article class="product">
+        <div class="product-img pink"><span>elina</span></div>
+        <h3>Elina Tee</h3>
+        <p>Pink / Soft Cotton</p>
+        <strong>CHF 29.90</strong>
+        <button data-name="Elina Tee" data-price="29.90">In den Warenkorb</button>
+      </article>
     </section>
   </main>
 
-  <footer><p>2026 elina. Made with love.</p></footer>
+  <footer>2026 elina. Made with love.</footer>
   <script src="script.js"></script>
 </body>
 </html>
