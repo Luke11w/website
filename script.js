@@ -42,14 +42,13 @@ function updateCart() {
 
 checkoutBtn.addEventListener("click", function() {
   if (cart.length === 0) {
-    alert("Dein Warenkorb ist noch leer.");
+    alert("Dein Warenkorb ist leer!");
     return;
   }
 
-  alert("Test Bestellung erfolgreich!");
-  cart = [];
-  total = 0;
-  updateCart();
+  sendToBackend(cart);
+
+  alert("Bestellung wurde gesendet 🔥");
 });
 function sendToBackend(cart) {
   fetch("http://localhost:3000/checkout", {
