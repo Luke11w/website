@@ -51,3 +51,16 @@ checkoutBtn.addEventListener("click", function() {
   total = 0;
   updateCart();
 });
+function sendToBackend(cart) {
+  fetch("http://localhost:3000/checkout", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({ cart: cart })
+  })
+  .then(res => res.json())
+  .then(data => {
+    console.log("Server Antwort:", data);
+  });
+}
