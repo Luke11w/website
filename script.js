@@ -1,65 +1,74 @@
-let cart = [];
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
 let total = 0;
 
 const cartCount = document.getElementById("cartCount");
 const cartItems = document.getElementById("cartItems");
 const cartTotal = document.getElementById("cartTotal");
-const checkoutBtn = document.getElementById("checkoutBtn");
 
-const productButtons = document.querySelectorAll(".product button");
+// Produkte hinzufügen
+document.querySelectorAll(".product button").forEach(btn => {
+  btn.addEventListener("click", () => {
+    const name = btn.dataset.name;
+    const price = Number(btn.dataset.price);
 
-productButtons.forEach(function(button) {
-  button.addEventListener("click", function() {
-    const name = button.dataset.name;
-    const price = Number(button.dataset.price);
+    cart.push({ name, price });
 
-    cart.push({
-      name: name,
-      price: price
-    });
-
-    total = total + price;
+    saveCart();
     updateCart();
   });
 });
 
+// Speichern
+function saveCart() {
+  localStorage.setItem("cart", JSON.stringify(cart));
+}
+
+// Laden + anzeigen
 function updateCart() {
+  if (!cartCount) return;
+
   cartCount.textContent = cart.length;
+
+  if (!cartItems) return;
+
   cartItems.innerHTML = "";
 
   if (cart.length === 0) {
-    cartItems.innerHTML = "<p class='empty'>Noch keine Produkte im Warenkorb.</p>";
+    cartItems.innerHTML = "<p>Warenkorb leer</p>";
+    cartTotal.textContent = "0.00";
+    return;
   }
 
-  cart.forEach(function(item) {
+  total = 0;
+
+  cart.forEach(item => {
     const div = document.createElement("div");
     div.textContent = item.name + " - CHF " + item.price.toFixed(2);
     cartItems.appendChild(div);
+
+    total += item.price;
   });
 
   cartTotal.textContent = total.toFixed(2);
 }
 
-checkoutBtn.addEventListener("click", function() {
-  if (cart.length === 0) {
-    alert("Dein Warenkorb ist leer!");
-    return;
-  }
+// Beim Laden anzeigen
+updateCart();
 
-  sendToBackend(cart);
+// Checkout
+const checkoutBtn = document.getElementById("checkoutBtn");
 
-  alert("Bestellung wurde gesendet 🔥");
-});
-function sendToBackend(cart) {
-  fetch("http://localhost:3000/checkout", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify({ cart: cart })
-  })
-  .then(res => res.json())
-  .then(data => {
-    console.log("Server Antwort:", data);
+if (checkoutBtn) {
+  checkoutBtn.addEventListener("click", () => {
+    if (cart.length === 0) {
+      alert("Warenkorb ist leer");
+      return;
+    }
+
+    alert("Bestellung gesendet 🔥");
+
+    cart = [];
+    saveCart();
+    updateCart();
   });
 }
