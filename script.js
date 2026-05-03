@@ -1,10 +1,30 @@
+// Warenkorb laden
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
 const cartCount = document.getElementById("cartCount");
 const cartItems = document.getElementById("cartItems");
 const cartTotal = document.getElementById("cartTotal");
+const checkoutBtn = document.getElementById("checkoutBtn");
 
-// Produkt hinzufügen
+// 👉 BACKEND SENDEN
+function sendToBackend(cart) {
+  fetch("http://localhost:3000/checkout", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({ cart: cart })
+  })
+  .then(res => res.json())
+  .then(data => {
+    console.log("Server Antwort:", data);
+  })
+  .catch(err => {
+    console.error("Fehler:", err);
+  });
+}
+
+// 👉 PRODUKTE HINZUFÜGEN
 document.querySelectorAll(".product button").forEach(btn => {
   btn.addEventListener("click", () => {
     const name = btn.dataset.name;
@@ -17,7 +37,7 @@ document.querySelectorAll(".product button").forEach(btn => {
   });
 });
 
-// Warenkorb anzeigen
+// 👉 WARENKORB ANZEIGEN
 function updateCart() {
   if (cartCount) {
     cartCount.textContent = cart.length;
@@ -46,18 +66,19 @@ function updateCart() {
   cartTotal.textContent = total.toFixed(2);
 }
 
-// Beim Laden anzeigen
+// 👉 BEIM LADEN AKTUALISIEREN
 updateCart();
 
-// Checkout Button
-const checkoutBtn = document.getElementById("checkoutBtn");
-
+// 👉 CHECKOUT BUTTON
 if (checkoutBtn) {
   checkoutBtn.addEventListener("click", () => {
     if (cart.length === 0) {
       alert("Warenkorb ist leer");
       return;
     }
+
+    // 🔥 Backend call
+    sendToBackend(cart);
 
     alert("Bestellung gesendet 🔥");
 
