@@ -1,37 +1,53 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Warenkorb elina</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>Warenkorb - elina</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
 <header>
-<a class="brand" href="index.html">el<span>i</span>na</a>
-<nav>
-<a href="index.html">Home</a>
-<a href="shop.html">Shop</a>
-<a href="warenkorb.html">Warenkorb</a>
-</nav>
+  <a class="brand" href="index.html">el<span>i</span>na</a>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="shop.html">Shop</a>
+    <a href="warenkorb.html">Warenkorb <b id="cartCount">0</b></a>
+  </nav>
 </header>
-<main>
-<section class="cart-section">
-<h2>Dein Warenkorb</h2>
-<div id="cartItems"></div>
-<span id="cartTotal">0.00</span>
-<p>Total: CHF <span id="cartTotal">0.00</span></p>
-<button id="checkoutBtn">Zur Zahlung</button>
-</section>
-<section class="checkout">
-<h2>Zahlung (Test)</h2>
-<p>Wähle eine Methode:</p>
-<button>PayPal (Fake)</button>
-<button>Kreditkarte (Fake)</button>
-<button>Apple Pay (Fake)</button>
-</section>
+
+<main style="padding:40px;">
+
+  <h1>Dein Warenkorb</h1>
+
+  <!-- Produkte werden hier angezeigt -->
+  <div id="cartItems" style="margin:20px 0;"></div>
+
+  <!-- Total -->
+  <h3>Total: CHF <span id="cartTotal">0.00</span></h3>
+
+  <!-- Button -->
+  <button id="checkoutBtn" style="margin-top:20px; padding:10px 20px;">
+    Zur Zahlung
+  </button>
+
+  <!-- Fake Zahlung -->
+  <section style="margin-top:40px;">
+    <h2>Zahlung (Test)</h2>
+    <p>Wähle eine Methode:</p>
+
+    <button>PayPal (Fake)</button>
+    <button>Kreditkarte (Fake)</button>
+    <button>Apple Pay (Fake)</button>
+  </section>
+
 </main>
-<footer>2026 elina</footer>
+
+<footer style="text-align:center; margin-top:40px;">
+  2026 elina
+</footer>
+
 <script src="script.js"></script>
+
 </body>
 </html>
