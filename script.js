@@ -25,11 +25,11 @@ function saveCart() {
 
 // Laden + anzeigen
 function updateCart() {
-  if (!cartCount) return;
+  if (cartCount) {
+    cartCount.textContent = cart.length;
+  }
 
-  cartCount.textContent = cart.length;
-
-  if (!cartItems) return;
+  if (!cartItems || !cartTotal) return;
 
   cartItems.innerHTML = "";
 
@@ -39,7 +39,7 @@ function updateCart() {
     return;
   }
 
-  total = 0;
+  let total = 0;
 
   cart.forEach(item => {
     const div = document.createElement("div");
@@ -51,7 +51,6 @@ function updateCart() {
 
   cartTotal.textContent = total.toFixed(2);
 }
-
 // Beim Laden anzeigen
 updateCart();
 
