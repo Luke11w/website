@@ -23,7 +23,6 @@
     ✅ Account erfolgreich erstellt
   </div>
 
-  <!-- LOGIN -->
   <div id="loginPopup" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.82);z-index:9999;justify-content:center;align-items:center;padding:20px;">
     <div style="background:#111;padding:35px;border-radius:28px;width:100%;max-width:450px;border:1px solid rgba(255,255,255,.08);position:relative;">
 
@@ -46,16 +45,11 @@
         <a href="#" id="forgotPassword" style="color:#f5b6c8;text-decoration:none;font-size:14px;">Passwort vergessen?</a>
       </div>
 
-      <button style="width:100%;padding:16px;border:none;border-radius:999px;background:#f5b6c8;font-weight:bold;font-size:16px;cursor:pointer;margin-bottom:14px;">Login</button>
-
-      <button id="googleLogin" style="width:100%;padding:16px;border:none;border-radius:999px;background:white;color:black;font-weight:bold;font-size:16px;cursor:pointer;">
-        Continue with Google
-      </button>
+      <button style="width:100%;padding:16px;border:none;border-radius:999px;background:#f5b6c8;font-weight:bold;font-size:16px;cursor:pointer;">Login</button>
 
     </div>
   </div>
 
-  <!-- REGISTER -->
   <div id="registerPopup" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.82);z-index:9999;justify-content:center;align-items:center;padding:20px;">
     <div style="background:#111;padding:35px;border-radius:28px;width:100%;max-width:450px;border:1px solid rgba(255,255,255,.08);position:relative;">
 
@@ -135,10 +129,6 @@
 
     document.getElementById('forgotPassword').onclick = () => {
       alert('📧 Passwort Reset kommt später mit echtem Backend 😎');
-    };
-
-    document.getElementById('googleLogin').onclick = () => {
-      alert('🔥 Google Login UI aktiviert. Echter Google Login kommt später mit Firebase oder Auth System 😎');
     };
 
     createBtn.onclick = () => {
