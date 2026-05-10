@@ -1,5 +1,6 @@
 const express = require('express');
 const cors = require('cors');
+const mongoose = require('mongoose');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -7,8 +8,23 @@ const PORT = process.env.PORT || 3000;
 app.use(cors());
 app.use(express.json());
 
-// Benutzer Speicher
-const users = [];
+// MongoDB verbinden
+mongoose.connect(process.env.MONGO_URI)
+.then(() => {
+  console.log('🔥 Connected to MongoDB');
+})
+.catch((error) => {
+  console.log('❌ MongoDB Fehler:', error);
+});
+
+// User Schema
+const userSchema = new mongoose.Schema({
+  username: String,
+  email: String,
+  password: String
+});
+
+const User = mongoose.model('User', userSchema);
 
 app.get('/', (req, res) => {
   res.send('🔥 Elina Backend läuft perfekt');
@@ -22,65 +38,82 @@ app.get('/api/test', (req, res) => {
 });
 
 // REGISTER
-app.post('/register', (req, res) => {
-  const { username, email, password } = req.body;
+app.post('/register', async (req, res) => {
+  try {
+    const { username, email, password } = req.body;
 
-  if (!username || !email || !password) {
-    return res.status(400).json({
+    if (!username || !email || !password) {
+      return res.status(400).json({
+        success: false,
+        message: 'Bitte alles ausfüllen'
+      });
+    }
+
+    const existingUser = await User.findOne({ email });
+
+    if (existingUser) {
+      return res.status(400).json({
+        success: false,
+        message: 'Email bereits verwendet'
+      });
+    }
+
+    const newUser = new User({
+      username,
+      email,
+      password
+    });
+
+    await newUser.save();
+
+    console.log('🔥 Neuer User gespeichert:', username);
+
+    res.json({
+      success: true,
+      username,
+      message: 'Account erstellt 😎'
+    });
+
+  } catch (error) {
+    console.log(error);
+
+    res.status(500).json({
       success: false,
-      message: 'Bitte alles ausfüllen'
+      message: 'Server Fehler'
     });
   }
-
-  const existingUser = users.find(user => user.email === email);
-
-  if (existingUser) {
-    return res.status(400).json({
-      success: false,
-      message: 'Email bereits verwendet'
-    });
-  }
-
-  const newUser = {
-    id: Date.now(),
-    username,
-    email,
-    password
-  };
-
-  users.push(newUser);
-
-  console.log('Neuer User:', newUser);
-
-  res.json({
-    success: true,
-    username,
-    message: 'Account erstellt 🔥'
-  });
 });
 
 // LOGIN
-app.post('/login', (req, res) => {
-  const { email, password } = req.body;
+app.post('/login', async (req, res) => {
+  try {
+    const { email, password } = req.body;
 
-  const user = users.find(
-    u => u.email === email && u.password === password
-  );
+    const user = await User.findOne({ email, password });
 
-  if (!user) {
-    return res.status(401).json({
+    if (!user) {
+      return res.status(401).json({
+        success: false,
+        message: 'Falsche Login Daten'
+      });
+    }
+
+    res.json({
+      success: true,
+      username: user.username,
+      message: 'Login erfolgreich 🔥'
+    });
+
+  } catch (error) {
+    console.log(error);
+
+    res.status(500).json({
       success: false,
-      message: 'Falsche Login Daten'
+      message: 'Server Fehler'
     });
   }
-
-  res.json({
-    success: true,
-    username: user.username,
-    message: 'Login erfolgreich 😎'
-  });
 });
 
 app.listen(PORT, () => {
-  console.log(`Server läuft auf Port ${PORT}`);
+  console.log(`🚀 Server läuft auf Port ${PORT}`);
 });
