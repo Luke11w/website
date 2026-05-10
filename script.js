@@ -32,7 +32,16 @@ popup.innerHTML = `
 
 <button id="closePopup" style="position:absolute;top:15px;right:15px;background:#f5b6c8;border:none;padding:10px 14px;border-radius:50%;cursor:pointer;font-weight:bold;">✕</button>
 
-<img src="unisex-organic-oversized-high-neck-blaster-2.0-t-shirt-black.png" style="width:100%;height:100%;object-fit:cover;border-radius:24px;max-height:700px;">
+<div>
+<img id="popupMainImage" src="unisex-organic-oversized-high-neck-blaster-2.0-t-shirt-black.png" style="width:100%;height:520px;object-fit:cover;border-radius:24px;">
+
+<div style="display:flex;gap:12px;margin-top:18px;justify-content:center;">
+<div class="colorSwitch" data-color="black" style="width:28px;height:28px;border-radius:50%;background:black;border:2px solid white;cursor:pointer;"></div>
+<div class="colorSwitch" data-color="blue" style="width:28px;height:28px;border-radius:50%;background:#3b82f6;border:2px solid white;cursor:pointer;"></div>
+<div class="colorSwitch" data-color="red" style="width:28px;height:28px;border-radius:50%;background:#ef4444;border:2px solid white;cursor:pointer;"></div>
+<div class="colorSwitch" data-color="pink" style="width:28px;height:28px;border-radius:50%;background:#f5b6c8;border:2px solid white;cursor:pointer;"></div>
+</div>
+</div>
 
 <div>
 <p style="color:#f5b6c8;font-weight:bold;letter-spacing:2px;">LIMITED DROP</p>
@@ -52,9 +61,15 @@ Premium oversized streetwear hoodie mit softem Stoff und modernem Fit. Entwickel
 <button style="padding:12px 18px;border:none;border-radius:14px;background:#1d1d22;color:white;">XL</button>
 </div>
 
-<button style="background:#f5b6c8;color:#111;padding:16px 28px;border:none;border-radius:999px;font-weight:bold;font-size:16px;cursor:pointer;">
-Jetzt kaufen
+<div style="display:flex;gap:15px;flex-wrap:wrap;margin-top:25px;">
+<button id="popupCartBtn" style="background:#f5b6c8;color:#111;padding:16px 28px;border:none;border-radius:999px;font-weight:bold;font-size:16px;cursor:pointer;">
+In den Warenkorb
 </button>
+
+<a href="warenkorb.html" style="background:#1f1f24;color:white;padding:16px 28px;border-radius:999px;font-weight:bold;">
+Zum Warenkorb
+</a>
+</div>
 
 <div style="margin-top:30px;color:#aaa;line-height:1.9;">
 ✓ Oversized Fit<br>
@@ -71,7 +86,9 @@ Jetzt kaufen
 document.body.appendChild(popup);
 
 const popupBox = document.getElementById("productPopup");
+const popupMainImage = document.getElementById("popupMainImage");
 
+// Produkt öffnen
 setTimeout(() => {
   document.querySelectorAll(".product").forEach(card => {
     card.style.cursor = "pointer";
@@ -82,7 +99,45 @@ setTimeout(() => {
   });
 }, 100);
 
-// popup schließen
+// Farbwechsel
+
+document.querySelectorAll(".colorSwitch").forEach(btn => {
+  btn.addEventListener("click", () => {
+    const color = btn.dataset.color;
+
+    if(color === "blue") {
+      popupMainImage.style.filter = "hue-rotate(180deg)";
+    }
+    else if(color === "red") {
+      popupMainImage.style.filter = "hue-rotate(320deg)";
+    }
+    else if(color === "pink") {
+      popupMainImage.style.filter = "hue-rotate(260deg)";
+    }
+    else {
+      popupMainImage.style.filter = "none";
+    }
+  });
+});
+
+// Popup Warenkorb
+
+document.addEventListener("click", e => {
+  if(e.target.id === "popupCartBtn") {
+    cart.push({
+      name: "Elina Hoodie",
+      price: 59.90,
+      image: "unisex-organic-oversized-high-neck-blaster-2.0-t-shirt-black.png"
+    });
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+    updateCart();
+
+    alert("Zum Warenkorb hinzugefügt 😎");
+  }
+});
+
+// Popup schließen
 
 document.addEventListener("click", e => {
   if (e.target.id === "closePopup") {
