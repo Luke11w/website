@@ -23,6 +23,55 @@ function sendToBackend(cart) {
   });
 }
 
+// PRODUKT POPUP
+const popup = document.createElement("div");
+popup.innerHTML = `
+<div id="productPopup" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.88);z-index:9999;justify-content:center;align-items:center;padding:20px;">
+  <div style="background:#111;border-radius:24px;max-width:900px;width:100%;padding:20px;position:relative;">
+
+    <button id="closePopup" style="position:absolute;top:15px;right:15px;background:#f5b6c8;border:none;padding:10px 14px;border-radius:50%;cursor:pointer;font-weight:bold;">✕</button>
+
+    <img id="popupImage" src="unisex-organic-oversized-high-neck-blaster-2.0-t-shirt-black.png" style="width:100%;border-radius:18px;max-height:650px;object-fit:cover;">
+
+    <div style="display:flex;gap:10px;margin-top:15px;overflow:auto;">
+      <img class="thumb" src="unisex-organic-oversized-high-neck-blaster-2.0-t-shirt-black.png" style="width:90px;height:90px;object-fit:cover;border-radius:12px;cursor:pointer;">
+      <img class="thumb" src="unisex-organic-oversized-high-neck-blaster-2.0-t-shirt-black.png" style="width:90px;height:90px;object-fit:cover;border-radius:12px;cursor:pointer;">
+      <img class="thumb" src="unisex-organic-oversized-high-neck-blaster-2.0-t-shirt-black.png" style="width:90px;height:90px;object-fit:cover;border-radius:12px;cursor:pointer;">
+    </div>
+
+  </div>
+</div>
+`;
+
+document.body.appendChild(popup);
+
+const popupBox = document.getElementById("productPopup");
+const popupImage = document.getElementById("popupImage");
+
+// Produkt klickbar
+setTimeout(() => {
+  document.querySelectorAll(".product-img").forEach(card => {
+    card.style.cursor = "pointer";
+
+    card.addEventListener("click", () => {
+      popupBox.style.display = "flex";
+    });
+  });
+
+  document.querySelectorAll(".thumb").forEach(img => {
+    img.addEventListener("click", () => {
+      popupImage.src = img.src;
+    });
+  });
+}, 100);
+
+// Popup schließen
+document.addEventListener("click", e => {
+  if (e.target.id === "closePopup") {
+    popupBox.style.display = "none";
+  }
+});
+
 // Produkte hinzufügen
 document.querySelectorAll(".product button").forEach(btn => {
   btn.addEventListener("click", () => {
