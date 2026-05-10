@@ -9,12 +9,44 @@
 <body>
   <header class="site-header">
     <a class="brand" href="index.html">el<span>i</span>na</a>
+
     <nav>
       <a href="index.html">Home</a>
       <a href="shop.html">Shop</a>
       <a href="warenkorb.html">Warenkorb <b id="cartCount">0</b></a>
+      <a href="#" id="loginOpen">Login</a>
+      <a href="#" id="registerOpen">Register</a>
     </nav>
   </header>
+
+  <!-- LOGIN POPUP -->
+  <div id="loginPopup" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.82);z-index:9999;justify-content:center;align-items:center;padding:20px;">
+    <div style="background:#111;padding:35px;border-radius:28px;width:100%;max-width:450px;border:1px solid rgba(255,255,255,.08);position:relative;">
+      <button id="closeLogin" style="position:absolute;top:14px;right:14px;background:#f5b6c8;border:none;padding:10px 14px;border-radius:50%;cursor:pointer;">✕</button>
+      <h1 style="font-size:44px;margin-bottom:8px;">Welcome Back</h1>
+      <p style="color:#aaa;margin-bottom:25px;">Login to your elina account ✨</p>
+
+      <input type="email" placeholder="Email" style="width:100%;padding:16px;border-radius:16px;border:none;background:#1c1c22;color:white;margin-bottom:14px;">
+      <input type="password" placeholder="Password" style="width:100%;padding:16px;border-radius:16px;border:none;background:#1c1c22;color:white;margin-bottom:18px;">
+
+      <button style="width:100%;padding:16px;border:none;border-radius:999px;background:#f5b6c8;font-weight:bold;font-size:16px;cursor:pointer;">Login</button>
+    </div>
+  </div>
+
+  <!-- REGISTER POPUP -->
+  <div id="registerPopup" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.82);z-index:9999;justify-content:center;align-items:center;padding:20px;">
+    <div style="background:#111;padding:35px;border-radius:28px;width:100%;max-width:450px;border:1px solid rgba(255,255,255,.08);position:relative;">
+      <button id="closeRegister" style="position:absolute;top:14px;right:14px;background:#f5b6c8;border:none;padding:10px 14px;border-radius:50%;cursor:pointer;">✕</button>
+      <h1 style="font-size:44px;margin-bottom:8px;">Create Account</h1>
+      <p style="color:#aaa;margin-bottom:25px;">Join the elina community 💎</p>
+
+      <input type="text" placeholder="Username" style="width:100%;padding:16px;border-radius:16px;border:none;background:#1c1c22;color:white;margin-bottom:14px;">
+      <input type="email" placeholder="Email" style="width:100%;padding:16px;border-radius:16px;border:none;background:#1c1c22;color:white;margin-bottom:14px;">
+      <input type="password" placeholder="Password" style="width:100%;padding:16px;border-radius:16px;border:none;background:#1c1c22;color:white;margin-bottom:18px;">
+
+      <button style="width:100%;padding:16px;border:none;border-radius:999px;background:#f5b6c8;font-weight:bold;font-size:16px;cursor:pointer;">Create Account</button>
+    </div>
+  </div>
 
   <main>
     <section class="hero">
@@ -49,6 +81,7 @@
         <strong>CHF 59.90</strong>
         <button data-name="Elina Hoodie" data-price="59.90">In den Warenkorb</button>
       </article>
+
       <article class="product">
         <div class="product-img pink"><span>elina</span></div>
         <h3>Elina Tee</h3>
@@ -60,6 +93,28 @@
   </main>
 
   <footer>2026 elina. Made with love.</footer>
+
+  <script>
+    const loginPopup = document.getElementById('loginPopup');
+    const registerPopup = document.getElementById('registerPopup');
+
+    document.getElementById('loginOpen').onclick = () => {
+      loginPopup.style.display = 'flex';
+    };
+
+    document.getElementById('registerOpen').onclick = () => {
+      registerPopup.style.display = 'flex';
+    };
+
+    document.getElementById('closeLogin').onclick = () => {
+      loginPopup.style.display = 'none';
+    };
+
+    document.getElementById('closeRegister').onclick = () => {
+      registerPopup.style.display = 'none';
+    };
+  </script>
+
   <script src="script.js"></script>
 </body>
 </html>
