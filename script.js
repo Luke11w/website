@@ -23,49 +23,67 @@ function sendToBackend(cart) {
   });
 }
 
-// PRODUKT POPUP
+// DETAIL POPUP
 const popup = document.createElement("div");
 popup.innerHTML = `
-<div id="productPopup" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.88);z-index:9999;justify-content:center;align-items:center;padding:20px;">
-  <div style="background:#111;border-radius:24px;max-width:900px;width:100%;padding:20px;position:relative;">
+<div id="productPopup" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.9);z-index:9999;justify-content:center;align-items:center;padding:20px;">
 
-    <button id="closePopup" style="position:absolute;top:15px;right:15px;background:#f5b6c8;border:none;padding:10px 14px;border-radius:50%;cursor:pointer;font-weight:bold;">✕</button>
+<div style="background:#111;border-radius:30px;max-width:1100px;width:100%;padding:30px;display:grid;grid-template-columns:1fr 1fr;gap:30px;position:relative;border:1px solid rgba(255,255,255,.08);">
 
-    <img id="popupImage" src="unisex-organic-oversized-high-neck-blaster-2.0-t-shirt-black.png" style="width:100%;border-radius:18px;max-height:650px;object-fit:cover;">
+<button id="closePopup" style="position:absolute;top:15px;right:15px;background:#f5b6c8;border:none;padding:10px 14px;border-radius:50%;cursor:pointer;font-weight:bold;">✕</button>
 
-    <div style="display:flex;gap:10px;margin-top:15px;overflow:auto;">
-      <img class="thumb" src="unisex-organic-oversized-high-neck-blaster-2.0-t-shirt-black.png" style="width:90px;height:90px;object-fit:cover;border-radius:12px;cursor:pointer;">
-      <img class="thumb" src="unisex-organic-oversized-high-neck-blaster-2.0-t-shirt-black.png" style="width:90px;height:90px;object-fit:cover;border-radius:12px;cursor:pointer;">
-      <img class="thumb" src="unisex-organic-oversized-high-neck-blaster-2.0-t-shirt-black.png" style="width:90px;height:90px;object-fit:cover;border-radius:12px;cursor:pointer;">
-    </div>
+<img src="unisex-organic-oversized-high-neck-blaster-2.0-t-shirt-black.png" style="width:100%;height:100%;object-fit:cover;border-radius:24px;max-height:700px;">
 
-  </div>
+<div>
+<p style="color:#f5b6c8;font-weight:bold;letter-spacing:2px;">LIMITED DROP</p>
+
+<h1 style="font-size:52px;margin:10px 0;">Elina Hoodie</h1>
+
+<p style="font-size:17px;color:#bbb;line-height:1.8;">
+Premium oversized streetwear hoodie mit softem Stoff und modernem Fit. Entwickelt fuer einen cleanen und stylischen Everyday Look.
+</p>
+
+<h2 style="margin-top:25px;font-size:34px;">CHF 59.90</h2>
+
+<div style="display:flex;gap:12px;margin:25px 0;flex-wrap:wrap;">
+<button style="padding:12px 18px;border:none;border-radius:14px;background:#1d1d22;color:white;">S</button>
+<button style="padding:12px 18px;border:none;border-radius:14px;background:#1d1d22;color:white;">M</button>
+<button style="padding:12px 18px;border:none;border-radius:14px;background:#1d1d22;color:white;">L</button>
+<button style="padding:12px 18px;border:none;border-radius:14px;background:#1d1d22;color:white;">XL</button>
+</div>
+
+<button style="background:#f5b6c8;color:#111;padding:16px 28px;border:none;border-radius:999px;font-weight:bold;font-size:16px;cursor:pointer;">
+Jetzt kaufen
+</button>
+
+<div style="margin-top:30px;color:#aaa;line-height:1.9;">
+✓ Oversized Fit<br>
+✓ Premium Cotton<br>
+✓ Soft Inside Fabric<br>
+✓ Designed by elina
+</div>
+
+</div>
+</div>
 </div>
 `;
 
 document.body.appendChild(popup);
 
 const popupBox = document.getElementById("productPopup");
-const popupImage = document.getElementById("popupImage");
 
-// Produkt klickbar
 setTimeout(() => {
-  document.querySelectorAll(".product-img").forEach(card => {
+  document.querySelectorAll(".product").forEach(card => {
     card.style.cursor = "pointer";
 
     card.addEventListener("click", () => {
       popupBox.style.display = "flex";
     });
   });
-
-  document.querySelectorAll(".thumb").forEach(img => {
-    img.addEventListener("click", () => {
-      popupImage.src = img.src;
-    });
-  });
 }, 100);
 
-// Popup schließen
+// popup schließen
+
 document.addEventListener("click", e => {
   if (e.target.id === "closePopup") {
     popupBox.style.display = "none";
@@ -73,8 +91,11 @@ document.addEventListener("click", e => {
 });
 
 // Produkte hinzufügen
+
 document.querySelectorAll(".product button").forEach(btn => {
-  btn.addEventListener("click", () => {
+  btn.addEventListener("click", (e) => {
+    e.stopPropagation();
+
     const name = btn.dataset.name;
     const price = Number(btn.dataset.price);
     const image = btn.dataset.image;
