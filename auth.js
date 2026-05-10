@@ -5,6 +5,34 @@ const registerPopup = document.getElementById("registerPopup");
 const successPopup = document.getElementById("successPopup");
 const mainNav = document.getElementById("mainNav");
 const createAccountBtn = document.getElementById("createAccountBtn");
+const loginOpen = document.getElementById("loginOpen");
+const registerOpen = document.getElementById("registerOpen");
+const closeLogin = document.getElementById("closeLogin");
+const closeRegister = document.getElementById("closeRegister");
+
+if (loginOpen) {
+  loginOpen.onclick = () => {
+    loginPopup.style.display = "flex";
+  };
+}
+
+if (registerOpen) {
+  registerOpen.onclick = () => {
+    registerPopup.style.display = "flex";
+  };
+}
+
+if (closeLogin) {
+  closeLogin.onclick = () => {
+    loginPopup.style.display = "none";
+  };
+}
+
+if (closeRegister) {
+  closeRegister.onclick = () => {
+    registerPopup.style.display = "none";
+  };
+}
 
 function showMessage(text, success = true) {
   if (!successPopup) return;
