@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ELINA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      background: #050505;
+      color: white;
+      overflow-x: hidden;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding: 24px 6%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+      background: rgba(0,0,0,0.45);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .logo {
+      font-size: 34px;
+      font-weight: 900;
+      letter-spacing: 8px;
+    }
+
+    nav {
+      display: flex;
+      gap: 32px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #d0d0d0;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #ffb8d9;
+    }
+
+    .hero {
+      min-height: 100vh;
+      background:
+      linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0.2)),
+      url('Screenshot 2026-05-15 160840.png') center/cover;
+      display: flex;
+      align-items: center;
+      padding: 0 7%;
+      position: relative;
+    }
+
+    .hero-content {
+      max-width: 650px;
+    }
+
+    .tag {
+      color: #ffb8d9;
+      letter-spacing: 4px;
+      margin-bottom: 20px;
+      font-size: 14px;
+      text-transform: uppercase;
+    }
+
+    .hero h1 {
+      font-size: clamp(70px, 11vw, 150px);
+      line-height: 0.95;
+      margin-bottom: 24px;
+      font-weight: 900;
+    }
+
+    .hero p {
+      color: #d6d6d6;
+      font-size: 20px;
+      line-height: 1.7;
+      max-width: 560px;
+      margin-bottom: 40px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 18px 34px;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      font-size: 15px;
+      font-weight: 700;
+      transition: 0.35s;
+      text-decoration: none;
+    }
+
+    .btn-main {
+      background: #ffb8d9;
+      color: black;
+    }
+
+    .btn-main:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 0 35px rgba(255,184,217,0.4);
+    }
+
+    .btn-secondary {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      color: white;
+    }
+
+    .section {
+      padding: 120px 7%;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .split img {
+      width: 100%;
+      border-radius: 34px;
+      object-fit: cover;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    }
+
+    .split-text h2 {
+      font-size: clamp(48px, 6vw, 90px);
+      margin-bottom: 24px;
+      line-height: 0.95;
+    }
+
+    .split-text p {
+      color: #bfbfbf;
+      line-height: 1.9;
+      font-size: 18px;
+      margin-bottom: 30px;
+    }
+
+    .quote {
+      color: #ffb8d9;
+      font-size: 22px;
+      font-weight: 700;
+      margin-top: 20px;
+    }
+
+    .banner {
+      margin: 40px 7%;
+      height: 420px;
+      border-radius: 36px;
+      background:
+      linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.1)),
+      url('Screenshot 2026-05-15 160829.png') center/cover;
+      display: flex;
+      align-items: end;
+      padding: 60px;
+      overflow: hidden;
+    }
+
+    .banner h2 {
+      font-size: clamp(50px, 7vw, 110px);
+      line-height: 0.95;
+      max-width: 700px;
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
+      gap: 34px;
+      margin-top: 70px;
+    }
+
+    .card {
+      background: #0e0e0e;
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 34px;
+      overflow: hidden;
+      transition: 0.35s;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      border-color: rgba(255,184,217,0.5);
+      box-shadow: 0 0 40px rgba(255,184,217,0.15);
+    }
+
+    .card img {
+      width: 100%;
+      height: 420px;
+      object-fit: cover;
+    }
+
+    .card-content {
+      padding: 28px;
+    }
+
+    .card-content h3 {
+      font-size: 28px;
+      margin-bottom: 12px;
+    }
+
+    .card-content p {
+      color: #b9b9b9;
+      line-height: 1.7;
+      margin-bottom: 24px;
+    }
+
+    .price {
+      color: #ffb8d9;
+      font-size: 24px;
+      font-weight: 800;
+    }
+
+    footer {
+      padding: 70px 7%;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      margin-top: 120px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+      color: #9b9b9b;
+    }
+
+    @media(max-width: 900px){
+      .split {
+        grid-template-columns: 1fr;
+      }
+
+      nav {
+        display: none;
+      }
+
+      .banner {
+        height: 300px;
+        padding: 30px;
+      }
+
+      .hero {
+        padding-top: 140px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">ELINA</div>
+
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Shop</a>
+    <a href="#">Collection</a>
+    <a href="#">About</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-content">
+    <div class="tag">PREMIUM STREETWEAR</div>
+
+    <h1>WEAR YOUR STORY</h1>
+
+    <p>
+      Minimal luxury streetwear with cinematic aesthetics,
+      oversized fits and a modern dark fashion vibe.
+    </p>
+
+    <div class="hero-buttons">
+      <a href="#" class="btn btn-main">SHOP NOW</a>
+      <a href="#" class="btn btn-secondary">VIEW COLLECTION</a>
+    </div>
+  </div>
+</section>
+
+<section class="section split">
+  <img src="Screenshot 2026-05-15 160817.png" alt="ELINA Fashion">
+
+  <div class="split-text">
+    <div class="tag">ELINA COLLECTION</div>
+
+    <h2>Built Different.</h2>
+
+    <p>
+      ELINA verbindet moderne Streetwear mit cleanem Luxury Design.
+      Dunkle Ästhetik, hochwertige Fits und cineastische Visuals machen
+      die Brand zu mehr als nur Fashion.
+    </p>
+
+    <p>
+      Designed für Leute, die herausstechen wollen ohne laut zu sein.
+    </p>
+
+    <div class="quote">
+      DISCIPLINE. CONFIDENCE. AMBITION.
+    </div>
+  </div>
+</section>
+
+<section class="banner">
+  <h2>MORE THAN FASHION. IT'S A LIFESTYLE.</h2>
+</section>
+
+<section class="section">
+  <div class="tag">FEATURED PRODUCT</div>
+
+  <div class="product-page">
+
+    <div class="gallery">
+
+      <img id="mainImage" src="womens-cropped-hoodie-black-front-6a071fdb01f54.png" class="main-image">
+
+      <div class="thumbnails">
+        <img src="womens-cropped-hoodie-black-front-6a071fdb01f54.png" onclick="changeImage(this)">
+        <img src="womens-cropped-hoodie-black-front-6a071fdb035d8.png" onclick="changeImage(this)">
+        <img src="womens-cropped-hoodie-black-front-6a071fdb03d2e.png" onclick="changeImage(this)">
+        <img src="womens-cropped-hoodie-black-back-6a071d91d78c7.png" onclick="changeImage(this)">
+        <img src="womens-cropped-hoodie-black-back-6a071fdb02c1b.png" onclick="changeImage(this)">
+        <img src="womens-cropped-hoodie-black-back-6a071fdb024d8.png" onclick="changeImage(this)">
+        <img src="womens-cropped-hoodie-black-back-6a071fdb032c1.png" onclick="changeImage(this)">
+        <img src="womens-cropped-hoodie-black-back-6a071fdb0598d.png" onclick="changeImage(this)">
+        <img src="womens-cropped-hoodie-black-product-details-2-6a071fdb05284.png" onclick="changeImage(this)">
+      </div>
+
+    </div>
+
+    <div class="product-info">
+
+      <div class="tag">CROPPED HOODIE</div>
+
+      <h2>ELINA Cropped Hoodie</h2>
+
+      <div class="price">CHF 69.90</div>
+
+      <p>
+        Komfort und Stil in einem. Minimal luxury streetwear
+        mit modernem cropped fit.
+      </p>
+
+      <div class="sizes">
+        <button onclick="selectSize(this)">S</button>
+        <button onclick="selectSize(this)">M</button>
+        <button onclick="selectSize(this)">L</button>
+        <button onclick="selectSize(this)">XL</button>
+        <button onclick="selectSize(this)">2XL</button>
+      </div>
+
+      <button id="cartBtn" disabled>Wähle zuerst eine Größe</button>
+
+      <div class="description-box">
+        <h3>Beschreibung</h3>
+
+        <p>
+          Komfort und Stil in einem: So lässt sich dieser modische Hoodie am einfachsten beschreiben.
+        </p>
+
+        <ul>
+          <li>52 % luftdurchlässige gekämmte Baumwolle</li>
+          <li>Trendiger Cropped Fit</li>
+          <li>Passend gefärbte Kordelzüge</li>
+          <li>Weiches Premium Material</li>
+          <li>Luxury Streetwear Look</li>
+        </ul>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<style>
+
+.product-page{
+display:grid;
+grid-template-columns:1.2fr 1fr;
+gap:60px;
+margin-top:60px;
+align-items:start;
+}
+
+.gallery{
+display:flex;
+flex-direction:column;
+gap:20px;
+}
+
+.main-image{
+width:100%;
+border-radius:28px;
+background:#111;
+}
+
+.thumbnails{
+display:flex;
+flex-wrap:wrap;
+gap:12px;
+}
+
+.thumbnails img{
+width:95px;
+height:95px;
+object-fit:cover;
+border-radius:18px;
+cursor:pointer;
+border:2px solid transparent;
+transition:0.3s;
+background:#111;
+}
+
+.thumbnails img:hover{
+border-color:#ffb8d9;
+transform:scale(1.05);
+}
+
+.product-info h2{
+font-size:60px;
+line-height:0.95;
+margin-bottom:20px;
+}
+
+.product-info p{
+color:#bfbfbf;
+line-height:1.8;
+font-size:18px;
+margin-bottom:30px;
+}
+
+.sizes{
+display:flex;
+gap:14px;
+margin-bottom:30px;
+flex-wrap:wrap;
+}
+
+.sizes button{
+width:65px;
+height:65px;
+border-radius:18px;
+border:1px solid rgba(255,255,255,0.1);
+background:#111;
+color:white;
+font-size:18px;
+font-weight:700;
+cursor:pointer;
+transition:0.3s;
+}
+
+.sizes button:hover,
+.sizes button.active{
+background:#ffb8d9;
+color:black;
+}
+
+#cartBtn{
+width:100%;
+padding:20px;
+border:none;
+border-radius:999px;
+background:#ffb8d9;
+color:black;
+font-weight:800;
+font-size:18px;
+cursor:pointer;
+margin-bottom:40px;
+}
+
+#cartBtn:disabled{
+opacity:0.5;
+cursor:not-allowed;
+}
+
+.description-box{
+background:#0d0d0d;
+padding:35px;
+border-radius:28px;
+border:1px solid rgba(255,255,255,0.06);
+}
+
+.description-box h3{
+margin-bottom:20px;
+font-size:28px;
+}
+
+.description-box ul{
+padding-left:20px;
+color:#bfbfbf;
+line-height:2;
+}
+
+@media(max-width:950px){
+.product-page{
+grid-template-columns:1fr;
+}
+
+.product-info h2{
+font-size:42px;
+}
+}
+
+</style>
+
+<script>
+
+function changeImage(img){
+document.getElementById('mainImage').src = img.src;
+}
+
+function selectSize(btn){
+
+const buttons = document.querySelectorAll('.sizes button');
+buttons.forEach(b=>b.classList.remove('active'));
+
+btn.classList.add('active');
+
+const cartBtn = document.getElementById('cartBtn');
+cartBtn.disabled = false;
+cartBtn.innerText = 'In den Warenkorb';
+}
+
+</script>
+
+<footer>
+  <div>2026 ELINA</div>
+  <div>Wear Your Story</div>
+</footer>
+
+</body>
+</html>
