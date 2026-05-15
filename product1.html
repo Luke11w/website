@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ELINA Cropped Hoodie</title>
+<style>
+body{background:#050505;color:white;font-family:Arial,sans-serif;margin:0;}
+header{display:flex;justify-content:space-between;align-items:center;padding:25px 50px;background:#0b0b0b;border-bottom:1px solid #222;}
+nav a{color:white;text-decoration:none;margin-left:25px;font-weight:bold;}
+.gallery{display:grid;grid-template-columns:120px 1fr;gap:25px;padding:60px;align-items:start;}
+.thumbs{display:flex;flex-direction:column;gap:12px;}
+.thumbs img{width:100px;height:100px;object-fit:cover;border-radius:18px;cursor:pointer;border:2px solid transparent;background:#111;}
+.thumbs img:hover{border-color:#ffb6d9;}
+.main img{width:100%;border-radius:30px;background:#111;}
+.product{display:grid;grid-template-columns:1.2fr 1fr;gap:60px;padding:0 60px 80px;}
+.info h1{font-size:60px;margin-bottom:10px;}
+.price{font-size:40px;color:#ffb6d9;font-weight:bold;margin:25px 0;}
+.sizes{display:flex;gap:15px;margin:30px 0;}
+.sizes button{width:70px;height:70px;border:none;border-radius:20px;background:#111;color:white;font-size:18px;cursor:pointer;}
+.sizes button:hover{background:#ffb6d9;color:black;}
+.cart{width:100%;padding:22px;border:none;border-radius:999px;background:#ffb6d9;color:black;font-size:18px;font-weight:bold;cursor:pointer;}
+.desc{margin-top:40px;color:#bbb;line-height:1.8;}
+@media(max-width:900px){.product{grid-template-columns:1fr;padding:20px}.gallery{grid-template-columns:1fr}.thumbs{flex-direction:row;overflow:auto}}
+</style>
+</head>
+<body>
+<header>
+<div style="font-size:32px;font-weight:900;letter-spacing:3px;">ELINA</div>
+<nav>
+<a href="index.html">Home</a>
+<a href="shop.html">Shop</a>
+<a href="warenkorb.html">Warenkorb</a>
+</nav>
+</header>
+<div class="product">
+<div>
+<div class="gallery">
+<div class="thumbs">
+<img src="womens-cropped-hoodie-black-front-6a071fdb01f54.png" onclick="change(this)">
+<img src="womens-cropped-hoodie-black-front-6a071fdb035d8.png" onclick="change(this)">
+<img src="womens-cropped-hoodie-black-front-6a071fdb03d2e.png" onclick="change(this)">
+<img src="womens-cropped-hoodie-black-back-6a071d91d78c7.png" onclick="change(this)">
+<img src="womens-cropped-hoodie-black-product-details-2-6a071fdb05284.png" onclick="change(this)">
+</div>
+<div class="main">
+<img id="main" src="womens-cropped-hoodie-black-front-6a071fdb01f54.png">
+</div>
+</div>
+</div>
+<div class="info">
+<h1>ELINA Cropped Hoodie</h1>
+<div class="price">CHF 69.90</div>
+<p>Luxury cropped hoodie with clean cinematic streetwear aesthetic.</p>
+<div class="sizes">
+<button>S</button>
+<button>M</button>
+<button>L</button>
+<button>XL</button>
+<button>2XL</button>
+</div>
+<button class="cart">In den Warenkorb</button>
+<div class="desc">
+<h2>Beschreibung</h2>
+<p>Komfort und Stil in einem: So lässt sich dieser modische Hoodie am einfachsten beschreiben. Der Pullover ist ein tolles Statement in jeder Garderobe.</p>
+<ul>
+<li>52 % luftdurchlässige gekämmte Baumwolle</li>
+<li>Stoffgewicht: 220,39 g/m²</li>
+<li>Passend gefärbte Kordelzüge</li>
+<li>Abgesenkter Schulterschnitt</li>
+<li>Gekürzter Body mit offenem Saum</li>
+</ul>
+</div>
+</div>
+</div>
+<script>
+function change(el){document.getElementById('main').src=el.src}
+</script>
+</body>
+</html>
