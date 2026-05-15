@@ -3,32 +3,114 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>elina | Clothing Brand</title>
+  <title>elina | Premium Streetwear</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header class="site-header">
-    <a class="brand" href="index.html">el<span>i</span>na</a>
+  <div class="topbar">Kostenloser Versand ab CHF 80 <span>→</span></div>
 
+  <header class="site-header luxury-header">
+    <a class="brand" href="index.html">elina</a>
     <nav id="mainNav">
-      <a href="index.html">Home</a>
+      <a href="index.html" class="active">Home</a>
       <a href="shop.html">Shop</a>
-      <a href="warenkorb.html">Warenkorb <b id="cartCount">0</b></a>
+      <a href="#collections">Kollektionen</a>
+      <a href="#about">Über uns</a>
+      <a href="#contact">Kontakt</a>
+      <a href="warenkorb.html" class="cart-link">🛍️ <b id="cartCount">0</b></a>
     </nav>
   </header>
 
   <main>
-    <section class="hero">
-      <div>
-        <p class="eyebrow">New Drop</p>
-        <h1>WEAR YOUR STORY.</h1>
-        <p>Stylische Streetwear fuer Jugendliche. Modern, clean und mit Herz.</p>
-        <a class="primary-btn" href="shop.html">Kollektion ansehen</a>
+    <section class="luxury-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">Limited Drop</p>
+        <h1>Streetwear, die dich <span>definiert.</span></h1>
+        <p>Premium Qualität, limitierte Drops und ein cleanes Design für Menschen mit Stil und Vision.</p>
+        <div class="hero-actions">
+          <a class="primary-btn" href="shop.html">Jetzt shoppen →</a>
+          <a class="secondary-btn" href="#collections">Kollektionen entdecken</a>
+        </div>
+        <div class="hero-features">
+          <article>🛡️<strong>Premium Qualität</strong><small>Hochwertige Materialien</small></article>
+          <article>🔥<strong>Limitierte Drops</strong><small>Exklusiv & nur kurz verfügbar</small></article>
+          <article>🚚<strong>Kostenloser Versand</strong><small>Ab CHF 80 Bestellwert</small></article>
+        </div>
       </div>
+      <div class="hero-visual">
+        <div class="model-card"><span>ELINA</span></div>
+      </div>
+    </section>
+
+    <section id="collections" class="glass-section">
+      <div class="section-heading">
+        <h2>Unsere Kollektionen</h2>
+        <p>Entdecke unsere neuesten Drops</p>
+      </div>
+      <div class="collection-grid">
+        <a class="collection-card hoodie" href="shop.html"><span>Hoodies</span><small>Jetzt entdecken →</small></a>
+        <a class="collection-card tee" href="shop.html"><span>T-Shirts</span><small>Jetzt entdecken →</small></a>
+        <a class="collection-card pants" href="shop.html"><span>Hosen</span><small>Jetzt entdecken →</small></a>
+        <a class="collection-card cap" href="shop.html"><span>Accessories</span><small>Jetzt entdecken →</small></a>
+      </div>
+    </section>
+
+    <section class="glass-section products-home">
+      <div class="section-heading">
+        <h2>Beliebte Produkte</h2>
+        <p>Unsere Bestseller</p>
+      </div>
+      <div class="luxury-products">
+        <article class="lux-card">
+          <button class="heart">♡</button>
+          <div class="lux-img hoodie-img"><span>ELINA</span></div>
+          <h3>ELINA Signature Hoodie</h3>
+          <p>CHF 69.90</p>
+          <div class="dots"><i></i><i></i><i></i></div>
+        </article>
+        <article class="lux-card">
+          <button class="heart">♡</button>
+          <div class="lux-img tee-img"><span>ELINA</span></div>
+          <h3>ELINA Logo Tee</h3>
+          <p>CHF 34.90</p>
+          <div class="dots"><i></i><i></i><i></i></div>
+        </article>
+        <article class="lux-card">
+          <button class="heart">♡</button>
+          <div class="lux-img pants-img"><span>ELINA</span></div>
+          <h3>ELINA Sweatpants</h3>
+          <p>CHF 59.90</p>
+          <div class="dots"><i></i><i></i><i></i></div>
+        </article>
+        <article class="lux-card">
+          <button class="heart">♡</button>
+          <div class="lux-img cap-img"><span>ELINA</span></div>
+          <h3>ELINA Cap</h3>
+          <p>CHF 29.90</p>
+          <div class="dots"><i></i><i></i></div>
+        </article>
+      </div>
+      <a class="center-btn" href="shop.html">Alle Produkte anzeigen</a>
+    </section>
+
+    <section id="about" class="benefits-bar">
+      <article>↩️<strong>14 Tage Rückgaberecht</strong><small>Ohne wenn und aber</small></article>
+      <article>💳<strong>Sichere Zahlung</strong><small>SSL verschlüsselt</small></article>
+      <article>💬<strong>Kundensupport</strong><small>24/7 für dich da</small></article>
+      <article>⭐<strong>Über 10.000+ Kunden</strong><small>Zufrieden & überzeugt</small></article>
     </section>
   </main>
 
-  <footer>2026 elina. Made with love.</footer>
+  <footer id="contact" class="luxury-footer">
+    <div>
+      <h2>elina</h2>
+      <p>Streetwear, die mehr ist als nur Kleidung. Es ist ein Statement.</p>
+      <div class="socials">◎ ♪ ▶</div>
+    </div>
+    <div><h4>Shop</h4><a href="shop.html">Alle Produkte</a><a href="shop.html">Hoodies</a><a href="shop.html">T-Shirts</a><a href="shop.html">Hosen</a></div>
+    <div><h4>Informationen</h4><a href="#about">Über uns</a><a href="#">Versand & Zahlung</a><a href="#">Rückgabe</a><a href="#">FAQ</a></div>
+    <div><h4>Newsletter</h4><p>Verpasse keine Drops mehr.</p><form><input placeholder="E-Mail eingeben"><button>→</button></form></div>
+  </footer>
 
   <script src="script.js"></script>
 </body>
