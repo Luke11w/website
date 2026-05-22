@@ -63,77 +63,41 @@ nav a{color:white;text-decoration:none;margin-left:25px;font-weight:bold;}
 <button class="cart" id="cartBtn" disabled>Wähle zuerst eine Größe</button>
 <div class="desc">
 <h2>Beschreibung</h2>
-<p>Komfort und Stil in einem: So lässt sich dieser modische Hoodie am einfachsten beschreiben. Der Pullover ist ein tolles Statement in jeder Garderobe.</p>
-<ul>
-<li>52 % luftdurchlässige gekämmte Baumwolle</li>
-<li>Stoffgewicht: 220,39 g/m²</li>
-<li>Passend gefärbte Kordelzüge</li>
-<li>Abgesenkter Schulterschnitt</li>
-<li>Gekürzter Body mit offenem Saum</li>
-</ul>
+<p>Komfort und Stil in einem: So lässt sich dieser modische Hoodie am einfachsten beschreiben.</p>
 </div>
 </div>
 </div>
 <script>
-function change(el){document.getElementById('main').src=el.src}
-function selectSize(btn){
-const buttons=document.querySelectorAll('.sizes button');
-buttons.forEach(b=>b.classList.remove('active'));
-btn.classList.add('active');
-const cart=document.getElementById('cartBtn');
-cart.disabled=false;
-cart.classList.add('active');
-cart.innerText='In den Warenkorb';
-}
-</script>
-</body>
-  <script>
-
 function change(el){
-document.getElementById('main').src=el.src
+document.getElementById('main').src=el.src;
 }
 
 let selectedSize = "";
 
 function selectSize(btn){
-
 const buttons=document.querySelectorAll('.sizes button');
-
 buttons.forEach(b=>b.classList.remove('active'));
-
 btn.classList.add('active');
-
 selectedSize = btn.innerText;
-
 const cart=document.getElementById('cartBtn');
-
 cart.disabled=false;
-
 cart.classList.add('active');
-
 cart.innerText='In den Warenkorb';
 }
 
 document.getElementById('cartBtn').addEventListener('click',()=>{
-
 if(selectedSize==="") return;
-
 const product = {
 name:"ELINA Cropped Hoodie",
 price:69.90,
 size:selectedSize,
 image:"womens-cropped-hoodie-black-front-6a071fdb01f54.png"
 };
-
 let cart = JSON.parse(localStorage.getItem('elinaCart')) || [];
-
 cart.push(product);
-
 localStorage.setItem('elinaCart', JSON.stringify(cart));
-
-window.location.href = "warenkorb.html";
-
+window.location.href = 'warenkorb.html';
 });
-
 </script>
+</body>
 </html>
