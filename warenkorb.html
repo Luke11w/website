@@ -1,53 +1,86 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <title>Warenkorb - elina</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Warenkorb</title>
+
+<style>
+
+body{
+background:#050505;
+color:white;
+font-family:Arial;
+padding:50px;
+}
+
+.item{
+display:flex;
+gap:30px;
+background:#111;
+padding:20px;
+border-radius:20px;
+margin-bottom:20px;
+}
+
+.item img{
+width:160px;
+border-radius:20px;
+}
+
+.total{
+font-size:40px;
+margin-top:40px;
+color:#ffb8d9;
+font-weight:bold;
+}
+
+</style>
+
 </head>
+
 <body>
 
-<header>
-  <a class="brand" href="index.html">el<span>i</span>na</a>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="shop.html">Shop</a>
-    <a href="warenkorb.html">Warenkorb <b id="cartCount">0</b></a>
-  </nav>
-</header>
+<h1>Warenkorb</h1>
 
-<main style="padding:40px;">
+<div id="cart"></div>
 
-  <h1>Dein Warenkorb</h1>
+<div class="total" id="total"></div>
 
-  <!-- Produkte werden hier angezeigt -->
-  <div id="cartItems" style="margin:20px 0;"></div>
+<script>
 
-  <!-- Total -->
-  <h3>Total: CHF <span id="cartTotal">0.00</span></h3>
+const cartData = JSON.parse(localStorage.getItem('elinaCart')) || [];
 
-  <!-- Button -->
-  <button id="checkoutBtn" style="margin-top:20px; padding:10px 20px;">
-    Zur Zahlung
-  </button>
+const cart = document.getElementById('cart');
 
-  <!-- Fake Zahlung -->
-  <section style="margin-top:40px;">
-    <h2>Zahlung (Test)</h2>
-    <p>Wähle eine Methode:</p>
+const total = document.getElementById('total');
 
-    <button>PayPal (Fake)</button>
-    <button>Kreditkarte (Fake)</button>
-    <button>Apple Pay (Fake)</button>
-  </section>
+let sum = 0;
 
-</main>
+cartData.forEach(item=>{
 
-<footer style="text-align:center; margin-top:40px;">
-  2026 elina
-</footer>
+sum += item.price;
 
-<script src="script.js"></script>
+cart.innerHTML += `
+<div class="item">
+
+<img src="${item.image}">
+
+<div>
+<h2>${item.name}</h2>
+<p>Größe: ${item.size}</p>
+<p>CHF ${item.price}</p>
+</div>
+
+</div>
+`;
+
+});
+
+total.innerText = "Gesamt: CHF " + sum.toFixed(2);
+
+</script>
 
 </body>
 </html>
