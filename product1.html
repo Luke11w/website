@@ -87,4 +87,53 @@ cart.innerText='In den Warenkorb';
 }
 </script>
 </body>
+  <script>
+
+function change(el){
+document.getElementById('main').src=el.src
+}
+
+let selectedSize = "";
+
+function selectSize(btn){
+
+const buttons=document.querySelectorAll('.sizes button');
+
+buttons.forEach(b=>b.classList.remove('active'));
+
+btn.classList.add('active');
+
+selectedSize = btn.innerText;
+
+const cart=document.getElementById('cartBtn');
+
+cart.disabled=false;
+
+cart.classList.add('active');
+
+cart.innerText='In den Warenkorb';
+}
+
+document.getElementById('cartBtn').addEventListener('click',()=>{
+
+if(selectedSize==="") return;
+
+const product = {
+name:"ELINA Cropped Hoodie",
+price:69.90,
+size:selectedSize,
+image:"womens-cropped-hoodie-black-front-6a071fdb01f54.png"
+};
+
+let cart = JSON.parse(localStorage.getItem('elinaCart')) || [];
+
+cart.push(product);
+
+localStorage.setItem('elinaCart', JSON.stringify(cart));
+
+window.location.href = "warenkorb.html";
+
+});
+
+</script>
 </html>
