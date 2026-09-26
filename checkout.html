@@ -1,0 +1,13 @@
+<!doctype html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Checkout | ELINA</title><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet"><link rel="stylesheet" href="style.css"></head><body>
+<header class="site-header"><div class="nav"><a class="brand" href="index.html">el<i>i</i>na</a><nav class="nav-links"><a href="shop.html">Shop</a><a class="cart-pill" href="warenkorb.html">Bag <span class="cart-count" data-cart-count>0</span></a></nav></div></header>
+<main class="wrap"><section class="page-hero"><div class="eyebrow">CHECKOUT</div><h1 class="page-title">Fast fertig.</h1><p class="lead">Diese Version ist absichtlich ein Test-Checkout. Es wird noch kein echtes Geld belastet.</p></section>
+<section class="checkout-grid"><form class="form-card" data-checkout-form><div class="test-box"><strong>Testmodus</strong><br>Keine echten Zahlungsdaten eingeben. Stripe kommt erst in der späteren Live-Version dazu.</div><h2>Lieferadresse</h2><div class="form-grid">
+<div class="field"><label>Vorname</label><input required autocomplete="given-name"></div><div class="field"><label>Nachname</label><input required autocomplete="family-name"></div>
+<div class="field full"><label>E-Mail</label><input required type="email" autocomplete="email"></div>
+<div class="field full"><label>Strasse & Hausnummer</label><input required autocomplete="street-address"></div>
+<div class="field"><label>PLZ</label><input required inputmode="numeric" autocomplete="postal-code"></div><div class="field"><label>Ort</label><input required autocomplete="address-level2"></div>
+<div class="field full"><label>Land</label><select required><option>Schweiz</option></select></div></div>
+<h2 style="margin-top:30px">Zahlung</h2><div class="test-box">Für diese V2 wird die Bestellung nur simuliert. Es werden keine Karten- oder Bankdaten gespeichert.</div>
+<button class="btn btn-primary" style="width:100%" type="submit">Testbestellung abschliessen</button></form>
+<aside class="summary"><h2>Deine Bestellung</h2><div data-order-summary></div><a class="btn btn-secondary" style="width:100%;margin-top:12px" href="warenkorb.html">Zurück zum Warenkorb</a></aside></section></main>
+<footer>© 2026 ELINA · Wear Your Story</footer><script src="script.js"></script></body></html>
