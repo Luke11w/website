@@ -1,8 +1,14 @@
 # ELINA V2
 
-ELINA wird bewusst einfacher aufgebaut: wenige Seiten, eine gemeinsame Gestaltung und ein einziges Warenkorb-System.
+ELINA ist bewusst als kleiner, klarer Drop aufgebaut.
 
-## Aktiver V2-Flow
+## Aktiver Drop
+- ELINA Cropped Hoodie
+- ELINA Wide Leg Pants
+
+Das frühere Oversized Tee wurde aus dem aktiven Shop entfernt, weil es visuell nicht stark genug zum restlichen Drop gepasst hat.
+
+## Aktiver Flow
 1. Home
 2. Shop
 3. Produkt
@@ -12,25 +18,17 @@ ELINA wird bewusst einfacher aufgebaut: wenige Seiten, eine gemeinsame Gestaltun
 
 Der aktuelle Checkout ist absichtlich **nur Testmodus**. Es werden keine echten Zahlungsdaten erfasst, kein Geld belastet und keine Bestellung an Lieferanten gesendet.
 
-## Technische Struktur
-- `index.html` – Startseite
-- `shop.html` – Kollektion
-- `product1.html` bis `product3.html` – Produktseiten
-- `warenkorb.html` – Warenkorb
-- `checkout.html` – Test-Checkout
-- `danke.html` – Bestätigung
-- `style.css` – gesamtes Design
-- `script.js` – gemeinsamer Warenkorb + Checkout-Logik
-- `server.js` – kleine Test-API ohne Accounts
+## Design
+- Schwarz / Rosa / Weiss
+- vorhandene ELINA Mockups und Lifestyle-Screenshots werden weiterverwendet
+- Home enthält jetzt einen Lookbook-Bereich
+- Shop zeigt nur die zwei aktiven Pieces
 
 ## Nächste Live-Stufe
-Für echte Verkäufe werden später getrennt ergänzt:
-- Zahlungsanbieter (z. B. Stripe) mit verifiziertem Kontoinhaber
-- serverseitige Bestellung statt LocalStorage
-- Lieferanten-API für automatische Aufträge
-- Webhooks für Zahlung und Versandstatus
+- Zahlungsanbieter mit verifiziertem Kontoinhaber
+- serverseitige Bestellungen
+- Lieferanten-API
+- Webhooks
 - Tracking-Mails
-- Admin-Dashboard für Umsatz, Kosten, Marge und Bestellstatus
+- Admin-Dashboard
 - Retouren- und Support-Workflow
-
-Wichtig: Automatische Lieferantenbestellungen dürfen erst nach bestätigter echter Zahlung ausgelöst werden.
